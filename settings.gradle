@@ -1,0 +1,5 @@
+rootProject.name = 'axelor-amc-app'
+
+// Include modules
+include "modules:axelor-gst"
+include "modules:axelor-amc"

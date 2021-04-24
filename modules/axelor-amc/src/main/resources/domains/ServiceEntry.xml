@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
+
+  <module name="amc" package="com.axelor.amc.db" />
+
+  <entity name="ServiceEntry">
+
+    <string name="reference" readonly="true" title="Reference" />
+    <many-to-one name="serviceContract"
+      ref="com.axelor.amc.db.ServiceContract" title="Service Contract" />
+    <date name="serviceDate" title="Service Date" />
+    <enum name="serviceStatusSelect" ref="ServiceStatusSelect"
+      title="Service Status" />
+    <date name="completeDate" title="Completed Date" />
+    <string name="workDesc" title="Work Details" />
+    <string name="remark" title="Service Remarks" />
+    <decimal name="amtCharge" title="Amount Charge" />
+    <many-to-one name="allocateTo"
+      ref="com.axelor.gst.db.Party" title="Allocate To" />
+    <string name="resolveRemark" title="Service Remarks" />
+    <enum name="serviceType" ref="ServiceType" title="Service Type" />
+
+  </entity>
+
+
+  <enum name="ServiceStatusSelect">
+    <item name="PENDING" title="Pending" />
+    <item name="ONGOING" title="ON Going" />
+    <item name="COMPLETED" title="Completed" />
+    <item name="CANCLE" title="Cancle" />
+  </enum>
+
+  <enum name="ServiceType">
+    <item name="SERVICE" title="Service" />
+    <item name="COMPLAIN" title="Service" />
+
+  </enum>
+</domain-models>

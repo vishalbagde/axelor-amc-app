@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+	<form model="com.axelor.amc.db.AmcEntry" title="AMC"
+		name="amc-entry-form" width="large" onSave="action-amc-entry-method-on-save-set-reference">
+		<panel title="AMC Details" css="panel-red" name="amcDetails">
+			<panel colSpan="6">
+				<field name="name" />
+				<field name="price" />
+				<field name="nOfYear" />
+				<field name="remark" />
+			</panel>
+			<panel colSpan="6">
+				<field name="typeSelect" />
+				<field name="nOfService" />
+				<field name="isActive" />
+			</panel>
+		</panel>
+
+	</form>
+
+	<grid model="com.axelor.amc.db.AmcEntry" title="AMC Details"
+		name="amc-entry-grid" id="amc_entry_grid">
+
+		<field name="reference" />
+		<field name="name" />
+		<field name="price" />
+		<field name="nOfService" />
+		<field name="nOfYear" />
+		<field name="isActive" default="true" title="Is Active" />
+
+	</grid>
+
+	<action-method
+		name="action-amc-entry-method-on-save-set-reference"
+		model="com.axelor.amc.db.AmcEntry">
+		<call class="com.axelor.amc.db.web.AmcEntryController"
+			method="setReferenceInAmcEntry" />
+	</action-method>
+
+</object-views>
+
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
+
+  <module name="amc" package="com.axelor.amc.db" />
+
+  <entity name="ServiceContract">
+    <string name="reference" readonly="true" title="Reference" />
+    <date name="contractDate" title="Contract Date" />
+    <many-to-one name="party" ref="com.axelor.gst.db.Party"
+      title="Customer Name" />
+    <string name="typeSelect" selection="amcEntry.type.selection"
+      title="Amc Type" />
+    <many-to-one name="amcEntry"
+      ref="com.axelor.amc.db.AmcEntry" title="AMC" />
+    <date name="fromDate" title="From Date" />
+    <date name="toDate" title="To Date" />
+
+
+    <string name="machineName" title="Machine Name" />
+    <string name="machineBrand" title="Machine Brand" />
+    <string name="modelNo" title="Model No." />
+    <string name="serialNo" title="Serial No." />
+    <decimal name="salesAmt" title="Sales Amount"></decimal>
+    <many-to-one name="salesBy"
+      ref="com.axelor.gst.db.Party" title="Sales By" />
+    <string name="remark" title="Service Remarks" />
+
+    <one-to-many name="serviceEntryList" ref="ServiceEntry" mappedBy="serviceContract"/>
+
+  </entity>
+</domain-models>

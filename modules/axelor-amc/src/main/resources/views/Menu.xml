@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <!-- Main Menu -->
+  <menuitem title="AMC SYSTEM" name="menu-amc-main-module"
+    icon-background="teal" icon="fa-wrench" />
+
+
+  <!--Menu AmcEntry -->
+  <menuitem title="AMC" name="menu-amc-entry-main-all" parent="menu-amc-main-module"
+    icon="fa-handshake-o" action="menu.action.view.amc.entry.all"  />
+
+
+  <action-view name="menu.action.view.amc.entry.all" title="AMC"
+    model="com.axelor.amc.db.AmcEntry">
+    <view type="grid" name="amc-entry-grid" />
+    <view type="form" name="amc-entry-form" />
+  </action-view>
+
+  <!-- Menu ServiceContract -->
+  <menuitem title="Contract" name="menu-contract-all" parent="menu-amc-main-module"
+    action="menu.action.view.contract.all" />
+
+  <action-view name="menu.action.view.contract.all" model="com.axelor.amc.db.ServiceContract"
+    title="Contract">
+    <view type="grid" name="contract-grid" />
+    <view type="form" name="contract-form" />
+  </action-view>
+
+</object-views>
